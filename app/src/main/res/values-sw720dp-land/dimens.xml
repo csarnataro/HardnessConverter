@@ -1,0 +1,15 @@
+<resources>
+
+    <!--
+         sw720dp LANDSCAPE.
+    -->
+    <dimen name="activity_horizontal_margin">320dp</dimen>
+    <dimen name="info_activity_horizontal_margin">16dp</dimen>
+    <dimen name="info_activity_vertical_margin">16dp</dimen>
+    
+    <dimen name="info_layout_width">320dp</dimen>
+    <dimen name="info_layout_height">380dp</dimen>
+    
+    <string name="isTablet" translatable="false">true</string>
+    
+</resources>

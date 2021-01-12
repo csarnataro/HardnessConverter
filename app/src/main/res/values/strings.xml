@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hardness Converter</string>
+    <string name="action_settings">Settings</string>
+    <string name="tool_description">
+        Hardness converter performs conversion between different scales of surface hardness and tensile strength Rm
+    </string>
+    <string name="from_scale">From scale</string>
+    <string name="to_scale">To scale</string>
+<!--    <string name="from_scale_label">From scale:</string>-->
+<!--    <string name="to_scale_label">To scale:</string>-->
+    <string name="value_to_convert">Value to convert</string>
+    <string name="calculate">Calculate</string>
+    <string name="result">Result:</string>
+    <string name="share">Share</string>
+    <string name="share_via">Share result</string>
+	<string name="share_discover_tools">Find other tools specific for metallurgical design on https://www.graniteng.com/tools.php</string>
+	<string name="share_subject">Hardness Converter: conversion result</string>
+    
+    <string name="info">Info</string>
+    <string name="ok">OK</string>
+    
+    <string name="error_alert_title">Error</string>
+    <string name="error_source_out_of_range">The entered value for scale [%1$s] is out of range.\n\nValid values are between %2$s and %3$s</string>
+    <string name="error_target_out_of_range">The entered value for scale [%1$s] is out of range.\n\nValid values are between %2$s and %3$s</string>
+    <string name="error_no_matching">There is no match between [%1$s] and [%2$s] for the entered value.</string>
+    <string name="error_choose_scale">Please select both from scale and to scale</string>
+    <string name="value_not_numeric">Please type a valid numeric value</string>
+    
+    <string name="available_ranges">Available ranges</string>
+	<string name="info_discover_tools"><![CDATA[Find other tools specific <br>for metallurgical design on<br>
+	    <a href="https://www.graniteng.com/tools.php">https://www.graniteng.com/tools.php</a>]]> </string>
+    
+	
+    <string name="copyright"><![CDATA[&copy; __YEAR__ <a href="https://www.graniteng.com">graniteng.com</a>]]></string>
+    
+    <string name="disclaimer">
+		Granit Engineering doesn\'t assume any responsibility concerning special and accidental damage, 
+		direct or indirect (included, without restrictions, loss of profit, interruption of the activity, 
+		loss of informations or other economic losses) coming from the use of this application.        
+        
+    </string>
+    
+</resources>

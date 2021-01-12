@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#263238</color>
+    <color name="primaryLightColor">#4f5b62</color>
+    <color name="primaryDarkColor">#000a12</color>
+    <color name="primaryTextColor">#ffffff</color>
+
+    <color name="editTextHint">#aaaaaa</color>
+    <color name="colorOnSurface">#555555</color>
+    <color name="darkColorOnSurface">#555555</color>
+    <color name="mainBackground">#333333</color>
+
+    <color name="dialogTitle">#e6e6e6</color>
+    <color name="dialogMessage">#ffffff</color>
+    <color name="linkColor">#375a7f</color>
+
+    <color name="infoTextColor">#e6e6e6</color>
+</resources>

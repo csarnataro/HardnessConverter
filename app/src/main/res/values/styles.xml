@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.App.ImageButton.IconOnly" parent="Widget.MaterialComponents.Button">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:minWidth">32dp</item>
+        <item name="android:minHeight">32dp</item>
+    </style>
+
+    <style name="InfoTableScale">
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">right</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:textColor">@color/infoTextColor</item>
+    </style>
+
+    <style name="InfoTableRange">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textScaleX">0.9</item>
+        <item name="android:textColor">@color/infoTextColor</item>
+    </style>
+
+
+</resources>

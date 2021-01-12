@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:id="@+id/available_ranges_table"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/mainBackground"
+        android:gravity="center_horizontal"
+
+        android:padding="5dp"
+        android:stretchColumns="*"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText">
+
+        <TableRow android:layout_width="fill_parent">
+
+            <TextView
+                android:id="@+id/available_ranges"
+                style="@style/InfoTableScale"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_span="2"
+                android:gravity="center_horizontal"
+                android:text="@string/available_ranges"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/InfoTableScale"
+                android:layout_width="0dp"
+                android:text="HV :" />
+
+            <TextView
+                style="@style/InfoTableRange"
+                android:layout_width="0dp"
+                android:fontFamily="monospace"
+                android:text="  85 ≤ x &lt; 940" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/InfoTableScale"
+                android:layout_width="0dp"
+                android:text="HK :" />
+
+            <TextView
+                style="@style/InfoTableRange"
+                android:layout_width="0dp"
+                android:fontFamily="monospace"
+                android:text="  97 ≤ x &lt; 920" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/InfoTableScale"
+                android:layout_width="0dp"
+                android:text="HRC :" />
+
+            <TextView
+                style="@style/InfoTableRange"
+                android:layout_width="0dp"
+                android:fontFamily="monospace"
+                android:text="20.3 ≤ x &lt; 68" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/InfoTableScale"
+                android:layout_width="0dp"
+                android:text="HR15N :" />
+
+            <TextView
+                style="@style/InfoTableRange"
+                android:layout_width="0dp"
+                android:fontFamily="monospace"
+                android:text="69.6 ≤ x &lt; 93.2" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/InfoTableScale"
+                android:layout_width="0dp"
+                android:text="HR30N :" />
+
+            <TextView
+                style="@style/InfoTableRange"
+                android:layout_width="0dp"
+                android:fontFamily="monospace"
+                android:text="41.7 ≤ x &lt; 84.4" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/InfoTableScale"
+                android:layout_width="0dp"
+                android:text="HR45N :" />
+
+            <TextView
+                style="@style/InfoTableRange"
+                android:layout_width="0dp"
+                android:fontFamily="monospace"
+                android:text="19.9 ≤ x &lt; 75.4" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/InfoTableScale"
+                android:layout_width="0dp"
+                android:text="HB (std) :" />
+
+            <TextView
+                style="@style/InfoTableRange"
+                android:layout_width="0dp"
+                android:fontFamily="monospace"
+                android:text="  81 ≤ x &lt; 441" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/InfoTableScale"
+                android:layout_width="0dp"
+                android:text="HB (tung) :" />
+
+            <TextView
+                style="@style/InfoTableRange"
+                android:layout_width="0dp"
+                android:fontFamily="monospace"
+                android:text="  81 ≤ x &lt; 620" />
+        </TableRow>
+
+        <TableRow android:paddingBottom="12dp">
+
+            <TextView
+                style="@style/InfoTableScale"
+                android:layout_width="0dp"
+                android:text="Rm :" />
+
+            <TextView
+                style="@style/InfoTableRange"
+                android:layout_width="0dp"
+                android:fontFamily="monospace"
+                android:text=" 270 ≤ x &lt; 2180" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/discover"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/available_ranges_table"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:autoLink="web"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="2dp"
+        android:lines="3"
+        android:linksClickable="true"
+        android:paddingTop="6dp"
+        android:singleLine="false"
+
+        android:text="@string/info_discover_tools"
+        android:textColorLink="@color/linkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/available_ranges_table" />
+
+    <TextView
+        android:id="@+id/copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:autoLink="web"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="bottom"
+        android:lines="1"
+        android:linksClickable="true"
+        android:paddingBottom="4dp"
+        android:singleLine="false"
+        android:text="@string/copyright"
+        android:textColorLink="@color/linkColor"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/banner_replacement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/banner_replacement"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/primaryColor"
+        android:contentDescription="@string/app_name"
+        android:gravity="bottom"
+        android:padding="10dp"
+        android:scaleType="fitEnd"
+        android:src="@drawable/logo"
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
