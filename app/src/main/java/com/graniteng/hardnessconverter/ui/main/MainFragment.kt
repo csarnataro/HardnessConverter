@@ -2,7 +2,6 @@ package com.graniteng.hardnessconverter.ui.main
 
 import android.os.Bundle
 import android.view.*
-import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
@@ -14,6 +13,7 @@ import com.graniteng.hardnessconverter.R
 import com.graniteng.hardnessconverter.conversions.Values
 import com.graniteng.hardnessconverter.databinding.MainFragmentBinding
 import com.graniteng.hardnessconverter.isTablet
+import com.graniteng.hardnessconverter.utils.NoFilterAdapter
 import com.graniteng.hardnessconverter.utils.alert
 import com.graniteng.hardnessconverter.utils.hideKeyboard
 import com.graniteng.hardnessconverter.utils.setUpHTMLInView
@@ -38,6 +38,16 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        viewModel.showAlert.observe(viewLifecycleOwner, { message ->
+            alert(getString(message.first, *(message.second).toTypedArray()), true)
+        })
+
+        viewModel.convertedValue.observe(viewLifecycleOwner, { convertedValue ->
+            binding.result?.setText(convertedValue)
+        })
 
         setupScaleDropdown(binding.fromScale) { selectedScale ->
             fromScaleSelectedIndex = selectedScale
@@ -99,7 +109,11 @@ class MainFragment : Fragment() {
 
     private fun setupScaleDropdown(scaleInputLayout: TextInputLayout, setParam: (Int) -> Unit) {
         val items = Values.scales
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
+        val adapter = NoFilterAdapter(
+            requireContext(),
+            R.layout.drop_down_item,
+            items
+        )
 
         (scaleInputLayout.editText as? AutoCompleteTextView)?.apply{
             setAdapter(adapter)
@@ -109,19 +123,6 @@ class MainFragment : Fragment() {
             }
         }
 
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
-        viewModel.showAlert.observe(viewLifecycleOwner, { message ->
-            alert(getString(message.first, *(message.second).toTypedArray()), true)
-        })
-
-        viewModel.convertedValue.observe(viewLifecycleOwner, { convertedValue ->
-            binding.result?.setText(convertedValue)
-        })
     }
 
 }

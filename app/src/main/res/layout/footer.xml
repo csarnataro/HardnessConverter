@@ -1,0 +1,17 @@
+<ImageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/banner_replacement"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/footer_height"
+    android:layout_alignParentBottom="true"
+    android:background="@color/primaryColor"
+    android:contentDescription="@string/app_name"
+    android:gravity="bottom"
+    android:padding="@dimen/footer_padding"
+    android:scaleType="fitEnd"
+    android:src="@drawable/logo"
+    android:textAlignment="gravity"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />

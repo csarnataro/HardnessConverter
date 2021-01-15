@@ -1,6 +1,7 @@
 package com.graniteng.hardnessconverter.ui.main
 
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -30,15 +31,6 @@ class MainViewModel : ViewModel() {
             valueAsString = valueText
         )
         if (valueToConvert != null) {
-
-            // if input is ok, the selected scales are saved as default scales (available next time)
-//            val settings: SharedPreferences = getSharedPreferences(MainActivity.PREFS_NAME, 0)
-//            val editor = settings.edit()
-//            editor.putInt("selectedSourceScale", selectedSourceScale)
-//            editor.putInt("selectedTargetScale", selectedTargetScale)
-//
-//            // Commit the edits!
-//            editor.commit()
 
             val durx = valueToConvert.toFloat()
             val dury: Float

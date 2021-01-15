@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:lineSpacingExtra="2dp"
         android:lines="3"
@@ -28,7 +28,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:hint="@string/from_scale"
         android:labelFor="@id/from_scale_value"
         app:layout_constraintEnd_toEndOf="@+id/message"
@@ -51,7 +51,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:hint="@string/to_scale"
         app:layout_constraintEnd_toEndOf="@+id/from_scale"
         app:layout_constraintStart_toStartOf="@+id/from_scale"
@@ -72,7 +72,7 @@
         style="@style/TextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:hint="@string/value_to_convert"
         app:layout_constraintEnd_toEndOf="@+id/to_scale"
         app:layout_constraintStart_toStartOf="@+id/to_scale"
@@ -95,7 +95,7 @@
         android:id="@+id/calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:paddingStart="24dp"
         android:paddingLeft="24dp"
         android:paddingEnd="24dp"
@@ -118,21 +118,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:clickable="false"
         android:ems="10"
         android:enabled="false"
+        android:inputType="numberDecimal"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:inputType="numberDecimal"
         android:maxWidth="100dp"
         android:textColor="@color/resultColor"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/calculate"
-        tools:text="123.45" />
+        tools:text="123.45"
+         />
 
     <Button
         android:id="@+id/imageButton"
@@ -149,7 +150,7 @@
         android:id="@+id/copyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:autoLink="web"
         android:clickable="true"
         android:focusable="true"
@@ -171,6 +172,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

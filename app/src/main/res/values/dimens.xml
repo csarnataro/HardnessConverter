@@ -8,7 +8,7 @@
 
     <dimen name="info_layout_width">-1dp</dimen>
     <dimen name="info_layout_height">-1dp</dimen>
-    
-    <string name="isTablet" translatable="false">false</string>
-    
+    <dimen name="footer_height">25dp</dimen>
+    <dimen name="footer_padding">2dp</dimen>
+
 </resources>

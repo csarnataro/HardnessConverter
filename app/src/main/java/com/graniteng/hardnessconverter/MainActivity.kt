@@ -1,8 +1,7 @@
 package com.graniteng.hardnessconverter
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
 
         setTabletMode()
+        setOrientation()
         setupNavigation()
     }
 
@@ -41,6 +41,13 @@ class MainActivity : AppCompatActivity() {
 
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+    protected fun setOrientation() {
+        if (!isTablet()) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
+    }
+
 
 }
 

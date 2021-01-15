@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="isTablet" translatable="false">false</string>
+
 
     <string name="app_name">Hardness Converter</string>
     <string name="action_settings">Settings</string>
@@ -8,8 +10,6 @@
     </string>
     <string name="from_scale">From scale</string>
     <string name="to_scale">To scale</string>
-<!--    <string name="from_scale_label">From scale:</string>-->
-<!--    <string name="to_scale_label">To scale:</string>-->
     <string name="value_to_convert">Value to convert</string>
     <string name="calculate">Calculate</string>
     <string name="result">Result:</string>

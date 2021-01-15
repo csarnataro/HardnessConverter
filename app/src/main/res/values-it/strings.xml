@@ -8,8 +8,6 @@
     </string>
     <string name="from_scale">Scala di partenza</string>
     <string name="to_scale">Scala di arrivo</string>
-    <string name="from_scale_label">Scala di partenza:</string>
-    <string name="to_scale_label">Scala di arrivo:</string>
     <string name="value_to_convert">Valore da convertire:</string>
     <string name="calculate">Calcola</string>
     <string name="result">Risultato:</string>

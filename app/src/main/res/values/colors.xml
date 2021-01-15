@@ -15,5 +15,6 @@
     <color name="linkColor">#0000FF</color>
 
     <color name="infoTextColor">#333333</color>
+    <color name="resultColor">#555555</color>
 
 </resources>
