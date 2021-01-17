@@ -13,9 +13,18 @@
     <string name="result">Risultato:</string>
     <string name="share">Condividi</string>
     <string name="share_via">Condividi risultato</string>
-	<string name="share_discover_tools">Scopri altri strumenti specifici per la progettazione metallurgica su https://www.graniteng.com/tool.php</string>
 	<string name="share_subject">Hardness Converter: risultato conversione</string>
-    
+    <string name="share_discover_tools">Scopri altri strumenti specifici per la progettazione metallurgica su https://www.graniteng.com/tool.php</string>
+    <string name="share_message"><![CDATA[~ Hardness Converter ~
+
+%1$s : %2$s
+     ↓
+%3$s : %4$s
+
+~~
+Scopri altri strumenti specifici per la progettazione metallurgica su https://www.graniteng.com/tool.php]]>
+    </string>
+
     <string name="info">Info</string>
     <string name="ok">OK</string>
     

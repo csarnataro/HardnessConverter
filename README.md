@@ -6,9 +6,10 @@ Granit Engineering Hardness Converter is a mechanical and
 metallurgical design application which performs conversions between different scales of surface 
 hardness and tensile strength Rm.
 
-It's the free offline version for Android (5.0 and later) of the well known online tool available at:
+Available [on the Google Play store](https://play.google.com/store/apps/details?id=com.graniteng.hardnessconverter), 
+it's the free offline version for Android (5.0 and later) of the well known online tool available at:
 http://www.graniteng.com > Tools > Hardness Converter
-Direct link: [https://www.graniteng.com/hardness-converter](graniteng.com/hardness-converter)
+Direct link: [graniteng.com/hardness-converter](https://www.graniteng.com/hardness-converter)
 
 Available scales:
 
@@ -24,7 +25,7 @@ Available scales:
 
 Very quick and easy to use, it's currently available in English and Italian.
 
-### Hardness Converter is free a tool provided by [https://www.graniteng.com/](graniteng.com)
+### Hardness Converter is free a tool provided by [graniteng.com](https://www.graniteng.com)
 
 ## Technical details.
 

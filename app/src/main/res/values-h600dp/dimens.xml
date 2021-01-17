@@ -1,4 +1,6 @@
 <resources>
     <dimen name="footer_height">50dp</dimen>
     <dimen name="footer_padding">10dp</dimen>
+    <dimen name="element_spacing">16dp</dimen>
+    <dimen name="element_more_spacing">24dp</dimen>
 </resources>

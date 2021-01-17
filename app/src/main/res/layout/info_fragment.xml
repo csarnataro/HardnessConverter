@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEB3B">
+    >
 
     <TableLayout
         android:id="@+id/available_ranges_table"
@@ -187,44 +187,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/available_ranges_table" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discover"
-        tools:text="TextView" />
-
-    <TextView
-        android:id="@+id/copyright"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:autoLink="web"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="bottom"
-        android:lines="1"
-        android:linksClickable="true"
-        android:paddingBottom="4dp"
-        android:singleLine="false"
-        android:text="@string/copyright"
-        android:textColorLink="@color/linkColor"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@id/banner_replacement"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <include
         layout="@layout/footer"
+        android:id="@+id/footer_include"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -2,6 +2,7 @@ package com.graniteng.hardnessconverter.utils
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
@@ -18,27 +19,35 @@ fun Fragment.alert(resourceId: Int) {
     alert(requireContext().getString(resourceId), false)
 }
 
-fun Fragment.alert(message: String?, showInfoButton: Boolean = false) {
-    alert(message, showInfoButton, requireContext())
+fun Fragment.alert(message: String?, showInfoButton: Boolean = false, positiveButtonCallback: () -> Unit = {} ) {
+    alert(requireContext(), message, showInfoButton, positiveButtonCallback)
 }
 
 
-private fun Fragment.alert(message: String?, showInfoButton: Boolean, context: Context) {
+private fun Fragment.alert(context: Context, message: String?, showInfoButton: Boolean, positiveButtonCallback: () -> Unit = {}) {
     val inflater = LayoutInflater.from(context)
     val customTitle: View = inflater.inflate(R.layout.custom_alert_dialog, null).apply {
         (findViewById<TextView>(R.id.message)).text = message
         (findViewById<TextView>(R.id.title)).text = context.getString(R.string.error_alert_title)
     }
 
-    val builder = AlertDialog.Builder(ContextThemeWrapper(requireContext(), R.style.AlertDialogCustom))
+    val builder = AlertDialog.Builder(
+        ContextThemeWrapper(
+            requireContext(),
+            R.style.AlertDialogCustom
+        )
+    )
     val d = builder.apply {
         setView(customTitle)
         setCancelable(true)
-        setNegativeButton(R.string.ok) { dialog, id ->
+        setNegativeButton(R.string.ok) { dialog, _ ->
             // User clicked OK button
+            dialog.dismiss()
         }
         if (showInfoButton) {
-            // setPositiveButton(R.string.info, DialogInterface.OnClickListener { dialog, id -> showInfo() })
+            setPositiveButton(R.string.info) { _, _ ->
+                positiveButtonCallback()
+            }
         }
     }
     d.show()

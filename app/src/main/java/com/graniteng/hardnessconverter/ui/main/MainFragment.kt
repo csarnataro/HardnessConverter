@@ -1,9 +1,9 @@
 package com.graniteng.hardnessconverter.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.AutoCompleteTextView
-import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.graniteng.hardnessconverter.R
 import com.graniteng.hardnessconverter.conversions.Values
+import com.graniteng.hardnessconverter.conversions.Values.getScale
 import com.graniteng.hardnessconverter.databinding.MainFragmentBinding
-import com.graniteng.hardnessconverter.isTablet
 import com.graniteng.hardnessconverter.utils.NoFilterAdapter
 import com.graniteng.hardnessconverter.utils.alert
 import com.graniteng.hardnessconverter.utils.hideKeyboard
@@ -30,25 +30,16 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         binding = MainFragmentBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
-        viewModel.showAlert.observe(viewLifecycleOwner, { message ->
-            alert(getString(message.first, *(message.second).toTypedArray()), true)
-        })
-
-        viewModel.convertedValue.observe(viewLifecycleOwner, { convertedValue ->
-            binding.result?.setText(convertedValue)
-        })
-
+        setupViewModelListeners()
         setupScaleDropdown(binding.fromScale) { selectedScale ->
             fromScaleSelectedIndex = selectedScale
         }
@@ -56,30 +47,56 @@ class MainFragment : Fragment() {
             toScaleSelectedIndex = selectedScale
         }
 
-        setUpHTMLInView(view.findViewById<View>(R.id.copyright) as TextView)
+        setUpHTMLInView(binding.footerInclude.copyright)
 
         setUpCalculateClickListener()
+
+        setUpShareClickListener()
 
         setupValueChangeListener()
 
         setHasOptionsMenu(true)
     }
 
+    private fun setUpShareClickListener() {
+        binding.shareButton.setOnClickListener {
+            shareIt()
+        }
+    }
+
+    private fun setupViewModelListeners() {
+        viewModel.showAlert.observe(viewLifecycleOwner, { message ->
+            alert(
+                getString(message.messageId, *(message.arguments).toTypedArray()),
+                message.showInfo,
+                ::showInfo
+            )
+        })
+
+        viewModel.convertedValue.observe(viewLifecycleOwner, { convertedValue ->
+            binding.result.setText(convertedValue)
+        })
+
+        viewModel.fromScaleSelectedIndex.observe(viewLifecycleOwner, {
+            this.fromScaleSelectedIndex = it
+            binding.fromScale.editText?.setText(getScale(it))
+        })
+        viewModel.toScaleSelectedIndex.observe(viewLifecycleOwner, {
+            this.toScaleSelectedIndex = it
+            binding.toScale.editText?.setText(getScale(it))
+        })
+
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, menuInflater: MenuInflater) {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
-        if (isTablet()) {
-            menu.add(Menu.NONE, Menu.FIRST, Menu.NONE, "Share")
-                .setIcon(R.drawable.ic_share)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle presses on the action bar items
         return when (item.itemId) {
             R.id.actionbar_info -> {
-                println("****** NAVIGATING TO INFO")
                 showInfo()
                 true
             }
@@ -98,11 +115,9 @@ class MainFragment : Fragment() {
     }
 
     private fun setUpCalculateClickListener() {
-        binding.calculate.setOnClickListener { view ->
-            val fromScale = fromScaleSelectedIndex
-            val toScale = toScaleSelectedIndex
-            val valueToConvert = binding.value?.text.toString()
-            viewModel.calculate(fromScale, toScale, valueToConvert)
+        binding.calculate.setOnClickListener { _ ->
+            val valueToConvert = binding.value.text.toString()
+            viewModel.calculate(fromScaleSelectedIndex, toScaleSelectedIndex, valueToConvert)
             hideKeyboard()
         }
     }
@@ -115,16 +130,47 @@ class MainFragment : Fragment() {
             items
         )
 
-        (scaleInputLayout.editText as? AutoCompleteTextView)?.apply{
+        (scaleInputLayout.editText as? AutoCompleteTextView)?.apply {
             setAdapter(adapter)
-            setOnItemClickListener { parent, view, position, id ->
+            setOnItemClickListener { _, _, position, _ ->
                 println("**** selected position $position")
                 setParam(position)
             }
         }
-
     }
 
+    private fun shareIt() {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.type = "text/plain"
+        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
+
+        // I'm building the message here, instead of using string resources,
+        // because newlines and empty spaces are not preserved properly
+        val body = """
+            ~ Hardness Converter ~
+
+            ${getScale(fromScaleSelectedIndex)} : ${binding.value.text}
+                        ↓
+            ${getScale(toScaleSelectedIndex)} : ${binding.result.text}
+
+            ~~
+            ${getString(R.string.share_discover_tools)}
+        """.trimIndent()
+
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, body)
+        startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_via)))
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("fromScaleSelectedIndex", fromScaleSelectedIndex)
+        outState.putInt("toScaleSelectedIndex", toScaleSelectedIndex)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        fromScaleSelectedIndex = savedInstanceState?.getInt("fromScaleSelectedIndex") ?: -1
+        toScaleSelectedIndex = savedInstanceState?.getInt("toScaleSelectedIndex") ?: -1
+        super.onViewStateRestored(savedInstanceState)
+    }
 }
 
 

@@ -1,7 +1,31 @@
-<ImageView
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/banner_replacement"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+<TextView
+    android:id="@+id/copyright"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:autoLink="web"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_horizontal"
+    android:lines="1"
+    android:linksClickable="true"
+    android:paddingBottom="4dp"
+    android:singleLine="false"
+    android:text="@string/copyright"
+    android:textColorLink="@color/linkColor"
+    android:textSize="12sp"
+ />
+
+
+<ImageView
+    android:id="@+id/footer"
     android:layout_width="fill_parent"
     android:layout_height="@dimen/footer_height"
     android:layout_alignParentBottom="true"
@@ -12,6 +36,6 @@
     android:scaleType="fitEnd"
     android:src="@drawable/logo"
     android:textAlignment="gravity"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+/>
+
+</LinearLayout>

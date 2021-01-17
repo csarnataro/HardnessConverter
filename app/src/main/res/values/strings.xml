@@ -15,9 +15,8 @@
     <string name="result">Result:</string>
     <string name="share">Share</string>
     <string name="share_via">Share result</string>
-	<string name="share_discover_tools">Find other tools specific for metallurgical design on https://www.graniteng.com/tools.php</string>
-	<string name="share_subject">Hardness Converter: conversion result</string>
-    
+    <string name="share_discover_tools">Find other tools specific for metallurgical design on https://www.graniteng.com/tools.php</string>
+    <string name="share_subject">Hardness Converter: conversion result</string>
     <string name="info">Info</string>
     <string name="ok">OK</string>
     

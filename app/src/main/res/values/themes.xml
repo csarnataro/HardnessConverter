@@ -10,5 +10,10 @@
 
         <!-- Customize your theme here. -->
     </style>
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:textColorHint">@color/editTextHint</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="hintTextColor">@color/editTextHint</item>
+    </style>
 
 </resources>

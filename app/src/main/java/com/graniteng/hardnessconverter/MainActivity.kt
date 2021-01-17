@@ -8,9 +8,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 
-// import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-
-
 class MainActivity : AppCompatActivity() {
 
     companion object {

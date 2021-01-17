@@ -10,5 +10,7 @@
     <dimen name="info_layout_height">-1dp</dimen>
     <dimen name="footer_height">25dp</dimen>
     <dimen name="footer_padding">2dp</dimen>
+    <dimen name="element_spacing">8dp</dimen>
+    <dimen name="element_more_spacing">12dp</dimen>
 
 </resources>

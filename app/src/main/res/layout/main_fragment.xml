@@ -5,17 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainFragment">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/element_spacing"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:lineSpacingExtra="2dp"
-        android:lines="3"
         android:singleLine="false"
         android:text="@string/tool_description"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +27,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/element_spacing"
         android:hint="@string/from_scale"
         android:labelFor="@id/from_scale_value"
         app:layout_constraintEnd_toEndOf="@+id/message"
@@ -51,13 +50,14 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/element_spacing"
         android:hint="@string/to_scale"
         app:layout_constraintEnd_toEndOf="@+id/from_scale"
         app:layout_constraintStart_toStartOf="@+id/from_scale"
         app:layout_constraintTop_toBottomOf="@+id/from_scale">
 
         <AutoCompleteTextView
+            android:id="@+id/to_scale_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -72,7 +72,7 @@
         style="@style/TextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/element_spacing"
         android:hint="@string/value_to_convert"
         app:layout_constraintEnd_toEndOf="@+id/to_scale"
         app:layout_constraintStart_toStartOf="@+id/to_scale"
@@ -95,7 +95,7 @@
         android:id="@+id/calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/element_more_spacing"
         android:paddingStart="24dp"
         android:paddingLeft="24dp"
         android:paddingEnd="24dp"
@@ -106,7 +106,7 @@
         app:layout_constraintTop_toBottomOf="@+id/value_container" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/resultLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/result"
@@ -117,8 +117,7 @@
         android:id="@+id/result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/element_more_spacing"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:clickable="false"
@@ -130,12 +129,12 @@
         android:maxWidth="100dp"
         android:textColor="@color/resultColor"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/resultLabel"
         app:layout_constraintTop_toBottomOf="@+id/calculate"
         tools:text="123.45" />
 
     <Button
-        android:id="@+id/imageButton"
+        android:id="@+id/shareButton"
         style="@style/Widget.App.ImageButton.IconOnly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -145,28 +144,11 @@
         app:layout_constraintEnd_toEndOf="@+id/value_container"
         app:layout_constraintTop_toTopOf="@+id/result" />
 
-    <TextView
-        android:id="@+id/copyright"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:autoLink="web"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center_horizontal"
-        android:lines="1"
-        android:linksClickable="true"
-        android:paddingBottom="4dp"
-        android:singleLine="false"
-        android:text="@string/copyright"
-        android:textColorLink="@color/linkColor"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/banner_replacement"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <include
         layout="@layout/footer"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/footer_include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
